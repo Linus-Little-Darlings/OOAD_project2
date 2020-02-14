@@ -14,10 +14,10 @@ import abc
 class Zoo:
     
     def __init__(self): # constructor
-        self.animals = [];
+        self.animals = []; #to hold animals in zoo
 
     def add(self, newAnimal):
-        self.animals.append(newAnimal);
+        self.animals.append(newAnimal); #adding animals
     
     def getAnimals(self):
         return self.animals;
@@ -40,7 +40,7 @@ class AnimalStrategyAbstract(object): #using stratedy pattern to separate animal
     def eat(self, name, species):
         """Required Method"""
 
-class ferociousFeline(AnimalStrategyAbstract):
+class ferociousFeline(AnimalStrategyAbstract): #angry feline behavior - like lion
     def makeNoise(self, name, species):
         print(name + " the " + species + " is roaring!")
         
@@ -55,7 +55,7 @@ class ferociousFeline(AnimalStrategyAbstract):
         else:
             print(name + " the " + species + " is eating!")
         
-class gentleFeline(AnimalStrategyAbstract):
+class gentleFeline(AnimalStrategyAbstract): #nice feline behavior - like cat
     def makeNoise(self, name, species):
         print(name + " the " + species + " is meowing!")
     
@@ -65,7 +65,7 @@ class gentleFeline(AnimalStrategyAbstract):
     def eat(self, name, species):
         print(name + " the " + species + " is eating!")
         
-class ferociousCanine(AnimalStrategyAbstract):
+class ferociousCanine(AnimalStrategyAbstract): #angry canine behavior - like wolf
     def makeNoise(self, name, species):
         print(name + " the " + species + " is howling!")
     
@@ -75,7 +75,7 @@ class ferociousCanine(AnimalStrategyAbstract):
     def eat(self, name, species):
         print(name + " the " + species + " is scarfing their food!")
         
-class gentleCanine(AnimalStrategyAbstract):
+class gentleCanine(AnimalStrategyAbstract): #nice canine behavior - like dog
     def makeNoise(self, name, species):
         print(name + " the " + species + " is barking!")
         
@@ -85,7 +85,7 @@ class gentleCanine(AnimalStrategyAbstract):
     def eat(self, name, species):
         print(name + " the " + species + " is lapping up their food!")
         
-class pachyderm(AnimalStrategyAbstract):
+class pachyderm(AnimalStrategyAbstract): #all pachyderms are nice
     def makeNoise(self, name, species):
         print(name + " the " + species + " is trumpeting!")
         
@@ -102,11 +102,11 @@ class pachyderm(AnimalStrategyAbstract):
 #     __metaclass__ = abc.ABCMeta
 
 #     @abc.abstractmethod
-#     def lights_on(self):
+#     def heavyRoam(self):
 #         """Required Method"""
 
 # class heavyRoam(RoamStrategyAbstract):
-#     def lights_on(self, name, species):
+#     def heavyRoam(self, name, species):
 #         print(name + " the " + species + " is stomping around!")
 
 
@@ -128,7 +128,7 @@ class Animal:
         self.behavior = behavior
     
     def wakeup(self):
-        print(self.name + " the " + self.species + " has woken up!")
+        print(self.name + " the " + self.species + " has woken up!") #all animals wakeup and fall asleep the same
     
     #invoking stratedy for roam, eat, and makeNoise
     def roam(self):
@@ -149,7 +149,7 @@ class Cat(Animal):
     def __init__(self, name, species):
         super(Cat, self).__init__(name, species, gentleFeline)
     
-    def sleep(self):
+    def sleep(self): #except for the cat, who is a silly guy
         sleep = self.name + " the " + self.species + " has gone to sleep!"
         hiss = self.name + " the " + self.species + " is hissing at you!"
         wild = self.name + " the " + self.species + " is jumping everywhere!"
@@ -200,7 +200,7 @@ class Zookeeper:
         
     #wake all animals
     def wakeAnimals(self):
-        self.notify_observers('wake')
+        self.notify_observers('wake') #updating the observers
         print("------ The zookeeper is waking the animals up! ------")
         for a in self.animals:
             a.wakeup()
@@ -248,7 +248,7 @@ class ZooAnnoucer:
         pass
     
     #wait for update from observable and print accordingly
-    def update(self, action):
+    def update(self, action): #observer notifying us about whats happening
         if action == 'wake':
             print('Hey yall the zookeeper is waking the animals')
             
