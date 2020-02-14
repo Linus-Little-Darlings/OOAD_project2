@@ -1,6 +1,6 @@
 # OOAD_project2, The Friendly Zoo pt. 2
 
-**Team Members**: Jake Andrus and Zora Watters 
+**Team Members**: Jake Andrus and Zora Watters <br/>
 **Language and Environment**:We used Python as our language and Jupyter Notebook to develop, then converted into a .py file! <br/>
 **Running code**: Our main method is located outside the Zookeeper class! You can run the .py or the .ipynb <br/>
 **Assumptions**: Animals all sleep, eat, and roam, make noise, and wake up. <br/>
